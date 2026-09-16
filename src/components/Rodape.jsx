@@ -19,8 +19,9 @@ export default function Rodape() {
 
         <div className="text-sm text-white/50 md:text-right">
           <p>
-            {cliente.cidade}/{cliente.uf} · {cliente.email}
+            {cliente.cidade}/{cliente.uf} · {cliente.telefoneExibicao}
           </p>
+          <p className="mt-1">{cliente.email}</p>
           <p className="mt-2">
             <a
               href={cliente.instagramUrl}

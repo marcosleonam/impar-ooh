@@ -6,6 +6,7 @@ const LINKS = [
   { href: '#formatos', rotulo: 'Formatos' },
   { href: '#pontos', rotulo: 'Pontos' },
   { href: '#como-funciona', rotulo: 'Como funciona' },
+  { href: '#a-marca', rotulo: 'A marca' },
   { href: '#contato', rotulo: 'Contato' },
 ]
 

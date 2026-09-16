@@ -64,6 +64,14 @@ export default function Contato() {
             </p>
             <p className="mt-3 text-white/80">{cliente.decisor}</p>
             <p className="text-sm text-white/50">{cliente.decisorCargo}</p>
+            <a
+              href={whatsappLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-block text-sm text-white/60 transition hover:text-azul"
+            >
+              {cliente.telefoneExibicao}
+            </a>
           </div>
           <div>
             <p className="font-display text-xs uppercase tracking-[0.24em] text-azul">Praça</p>

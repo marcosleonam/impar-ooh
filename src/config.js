@@ -13,30 +13,35 @@ export const cliente = {
   decisorCargo: 'Gestor comercial',
   email: 'imparooh@gmail.com',
 
-  // [CONFIRMAR] apareceram 4 números do cliente:
-  //   (98) 98891-9422  Google Maps
-  //   (98) 98894-9422  etiqueta dos painéis em campo
-  //   (98) 98891-9922  arte de um post do Instagram
-  //   (98) 8186-7416   contato do Instagram
-  // Até o Marcos confirmar, o botão usa o link curto que o próprio
-  // cliente publica na bio — não erra o número, mas não aceita
-  // mensagem pré-preenchida. Trocar por `whatsapp` quando confirmar.
-  whatsappLinkOficial: 'https://wa.me/message/UJT6WKVBO2YJN1',
-  whatsapp: null,
-  telefoneExibicao: null,
+  // Número do WhatsApp Business do Marcelo — é o que o próprio cliente
+  // registra como contato no perfil do Instagram, e é a mesma conta por trás
+  // do link curto da bio (que resolve para "Marcelo Vieira Impar OOH").
+  // Os outros três números que circulam (98894-9422 na etiqueta dos painéis,
+  // 98891-9422 no Google Maps, 98891-9922 numa arte de post) são anteriores
+  // ao rebranding ou de outra linha.
+  whatsapp: '5598981867416',
+  telefoneExibicao: '(98) 98186-7416',
+  whatsappLinkOficial: 'https://wa.me/message/UJT6WKVBO2YJN1', // reserva
 
   instagram: 'impar_ooh',
   instagramUrl: 'https://instagram.com/impar_ooh',
 
-  mensagemPadrao: 'Olá! Vim pelo site da ímpar e quero anunciar em mídia exterior.',
+  mensagemPadrao:
+    'Olá! Vim pelo site da ímpar e quero anunciar em mídia exterior. Pode me passar os pontos disponíveis e o valor?',
 }
 
-// Enquanto `whatsapp` for null, devolve o link oficial da bio.
-// Quando o número for confirmado, passa a montar wa.me com texto —
-// que é o que permite saber que o lead veio do site.
+// Monta o link do WhatsApp com a mensagem já escrita.
+// O texto pré-preenchido não é enfeite: é o que faz o Marcelo saber, na
+// primeira linha da conversa, que aquele lead veio do site e o que ele quer.
 export function whatsappLink(mensagem = cliente.mensagemPadrao) {
-  if (!cliente.whatsapp) return cliente.whatsappLinkOficial
   return `https://wa.me/${cliente.whatsapp}?text=${encodeURIComponent(mensagem)}`
+}
+
+// Mensagem específica por formato — o lead já chega dizendo o que procura.
+export function linkFormato(nomeFormato) {
+  return whatsappLink(
+    `Olá! Vim pelo site da ímpar e quero saber sobre ${nomeFormato}.`,
+  )
 }
 
 // Os sete formatos são exatamente os destaques do perfil do cliente.
@@ -126,3 +131,39 @@ export const etapas = [
       'Foto do seu anúncio instalado, no ponto contratado, com data. O checking é o que separa mídia exterior de promessa.',
   },
 ]
+
+// Seção "A marca". O rebranding foi confirmado pelo Marcos: a ímpar é a marca
+// nova da operação que a praça conhecia como Impacto. Os painéis em campo ainda
+// carregam a etiqueta antiga — por isso o site explica, em vez de fingir que
+// nada aconteceu. Texto escrito na voz do cliente, não copiado.
+// [CONFIRMAR] com o Marcelo: desde quando é ímpar, e se cabe citar o nome
+// "Impacto" de forma explícita no site.
+export const marca = {
+  texto: [
+    'Se você anda por São Luís, já passou por um painel nosso. Por muito tempo ele levou outro nome — e é o mesmo time, nas mesmas avenidas, cuidando das mesmas estruturas.',
+    'A ímpar é o nome novo dessa operação. Trocar a marca não foi trocar a placa: foi a chance de rever como a gente vende, como atende e o que entrega junto com o espaço no painel.',
+    'Mídia exterior é um mercado onde é fácil vender um ponto e sumir. A gente resolveu construir o contrário disso — e o nome novo é o compromisso público com esse jeito de trabalhar.',
+  ],
+  mudancas: [
+    {
+      titulo: 'A conversa começa pelo seu objetivo',
+      texto:
+        'Antes era catálogo e tabela. Agora a primeira pergunta é o que você precisa vender — o ponto vem depois, como consequência.',
+    },
+    {
+      titulo: 'Checking em toda campanha',
+      texto:
+        'Foto do seu anúncio instalado, no ponto contratado, com data. Deixou de ser favor pedido no fim e virou parte da entrega.',
+    },
+    {
+      titulo: 'Padrão de manutenção dos pontos',
+      texto:
+        'Estrutura, iluminação e estado do material entraram numa rotina de conferência. Painel rasgado ou lâmpada queimada é anúncio pago que não está trabalhando.',
+    },
+    {
+      titulo: 'Um portfólio inteiro, não um formato só',
+      texto:
+        'Outdoor, frontlight, LED, empena, backbus, ações e comunicação visual na mesma casa — para a indicação ser pelo que funciona, não pelo que temos sobrando.',
+    },
+  ],
+}
