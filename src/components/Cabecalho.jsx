@@ -40,7 +40,7 @@ export default function Cabecalho() {
           />
         </a>
 
-        <nav className="hidden flex-1 justify-center gap-10 md:flex">
+        <nav className="hidden flex-1 justify-center gap-8 lg:flex">
           {LINKS.map((l) => (
             <a
               key={l.href}
@@ -56,7 +56,7 @@ export default function Cabecalho() {
           href={whatsappLink()}
           target="_blank"
           rel="noopener noreferrer"
-          className="ml-auto hidden rounded-full bg-azul px-6 py-3 font-display text-xs uppercase tracking-[0.18em] text-white transition hover:bg-navy focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2 md:inline-block"
+          className="ml-auto hidden rounded-full bg-azul px-6 py-3 font-display text-xs uppercase tracking-[0.18em] text-white transition hover:bg-navy focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2 lg:inline-block"
         >
           Pedir orçamento
         </a>
@@ -64,7 +64,7 @@ export default function Cabecalho() {
         <button
           type="button"
           onClick={() => setAberto((v) => !v)}
-          className="-mr-2 ml-auto flex h-11 w-11 items-center justify-center text-navy md:hidden"
+          className="-mr-2 ml-auto flex h-11 w-11 items-center justify-center text-navy lg:hidden"
           aria-label={aberto ? 'Fechar menu' : 'Abrir menu'}
           aria-expanded={aberto}
         >
@@ -73,7 +73,7 @@ export default function Cabecalho() {
       </div>
 
       {aberto && (
-        <nav className="border-t border-navy/10 bg-papel px-6 pb-6 md:hidden">
+        <nav className="border-t border-navy/10 bg-papel px-6 pb-6 lg:hidden">
           {LINKS.map((l) => (
             <a
               key={l.href}
