@@ -27,7 +27,7 @@ export default function Rodape() {
               href={cliente.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition hover:text-azul"
+              className="inline-flex min-h-11 items-center transition hover:text-azul md:justify-end"
             >
               @{cliente.instagram}
             </a>

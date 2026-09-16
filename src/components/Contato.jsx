@@ -68,7 +68,7 @@ export default function Contato() {
               href={whatsappLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 inline-block text-sm text-white/60 transition hover:text-azul"
+              className="mt-1 inline-flex min-h-11 items-center text-sm text-white/60 transition hover:text-azul"
             >
               {cliente.telefoneExibicao}
             </a>
@@ -88,7 +88,7 @@ export default function Contato() {
               href={cliente.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 inline-flex items-center gap-2 text-white/80 transition hover:text-azul"
+              className="mt-1 inline-flex min-h-11 items-center gap-2 text-white/80 transition hover:text-azul"
             >
               <IconeInstagram width="18" height="18" />@{cliente.instagram}
             </a>

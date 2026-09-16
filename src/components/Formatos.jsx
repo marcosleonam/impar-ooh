@@ -43,7 +43,7 @@ export default function Formatos() {
               </h3>
               <p className="mt-2 font-accent text-lg italic text-navy/55">{f.resumo}</p>
               <p className="mt-5 text-sm leading-relaxed text-navy/70">{f.texto}</p>
-              <span className="mt-auto pt-8 font-display text-[0.7rem] uppercase tracking-[0.2em] text-navy/40 transition-colors group-hover:text-azul">
+              <span className="mt-auto pt-8 font-display text-xs uppercase tracking-[0.2em] text-navy/50 transition-colors group-hover:text-azul">
                 Falar sobre {f.nome.toLowerCase()}
               </span>
               <span
@@ -72,7 +72,7 @@ export default function Formatos() {
               Descreve o que você precisa vender e em que bairro está o seu cliente. A gente
               indica o formato e o ponto — sem compromisso.
             </p>
-            <span className="mt-8 inline-flex items-center gap-2 font-display text-[0.7rem] uppercase tracking-[0.2em] text-azul transition-colors group-hover:text-white">
+            <span className="mt-8 inline-flex items-center gap-2 font-display text-xs uppercase tracking-[0.2em] text-azul transition-colors group-hover:text-white">
               Perguntar no WhatsApp
               <ArrowUpRight size={16} aria-hidden="true" />
             </span>

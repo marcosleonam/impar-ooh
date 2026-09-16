@@ -64,7 +64,7 @@ export default function Cabecalho() {
         <button
           type="button"
           onClick={() => setAberto((v) => !v)}
-          className="ml-auto text-navy md:hidden"
+          className="-mr-2 ml-auto flex h-11 w-11 items-center justify-center text-navy md:hidden"
           aria-label={aberto ? 'Fechar menu' : 'Abrir menu'}
           aria-expanded={aberto}
         >
