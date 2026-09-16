@@ -16,14 +16,15 @@ function IconeInstagram(props) {
 export default function Contato() {
   return (
     <section id="contato" className="relative isolate overflow-hidden bg-navy py-24 lg:py-32">
-      <div
-        className="absolute inset-0 -z-10 opacity-20"
+      {/* Imagem em vez de background-image: assim o navegador respeita o
+          loading="lazy" e não baixa 69 kB de enfeite na primeira dobra. */}
+      <img
+        src={`${import.meta.env.BASE_URL}img/ponto-calhau.webp`}
+        alt=""
         aria-hidden="true"
-        style={{
-          backgroundImage: `url(${import.meta.env.BASE_URL}img/ponto-calhau.webp)`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
+        loading="lazy"
+        decoding="async"
+        className="absolute inset-0 -z-10 h-full w-full object-cover opacity-20"
       />
       <div className="absolute inset-0 -z-10 bg-navy/85" aria-hidden="true" />
 
