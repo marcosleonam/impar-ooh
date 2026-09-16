@@ -5,13 +5,16 @@ export default function Rodape() {
     <footer className="border-t-4 border-azul bg-tinta px-6 pb-10 pt-16 lg:px-12">
       <div className="mx-auto flex max-w-[1400px] flex-col gap-10 md:flex-row md:items-end md:justify-between">
         <div>
-          <img
-            src={`${import.meta.env.BASE_URL}img/logo.png`}
-            alt={cliente.nomeCompleto}
-            className="h-12 w-auto brightness-0 invert"
-            width="520"
-            height="301"
-          />
+          <picture>
+            <source srcSet={`${import.meta.env.BASE_URL}img/logo.webp`} type="image/webp" />
+            <img
+              src={`${import.meta.env.BASE_URL}img/logo.png`}
+              alt={cliente.nomeCompleto}
+              className="h-12 w-auto brightness-0 invert"
+              width="276"
+              height="160"
+            />
+          </picture>
           <p className="mt-5 max-w-sm font-accent text-lg italic text-white/45">
             “{cliente.tagline}”
           </p>

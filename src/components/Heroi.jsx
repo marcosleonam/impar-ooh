@@ -44,6 +44,8 @@ export default function Heroi() {
       >
         <img
           src={`${import.meta.env.BASE_URL}img/ponto-avenida.webp`}
+          srcSet={`${import.meta.env.BASE_URL}img/ponto-avenida-640.webp 640w, ${import.meta.env.BASE_URL}img/ponto-avenida.webp 1024w`}
+          sizes="100vw"
           alt=""
           className="h-full w-full object-cover"
           fetchPriority="high"

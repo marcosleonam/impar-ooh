@@ -31,13 +31,16 @@ export default function Cabecalho() {
     >
       <div className="mx-auto flex max-w-[1400px] items-center gap-6 px-6 py-4 lg:px-12">
         <a href="#topo" className="shrink-0" aria-label={`${cliente.nomeCompleto} — início`}>
-          <img
-            src={`${import.meta.env.BASE_URL}img/logo.png`}
-            alt={cliente.nomeCompleto}
-            className="h-9 w-auto md:h-11"
-            width="520"
-            height="301"
-          />
+          <picture>
+            <source srcSet={`${import.meta.env.BASE_URL}img/logo.webp`} type="image/webp" />
+            <img
+              src={`${import.meta.env.BASE_URL}img/logo.png`}
+              alt={cliente.nomeCompleto}
+              className="h-9 w-auto md:h-11"
+              width="276"
+              height="160"
+            />
+          </picture>
         </a>
 
         <nav className="hidden flex-1 justify-center gap-8 lg:flex">
