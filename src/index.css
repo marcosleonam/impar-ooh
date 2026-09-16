@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  /* tipografia — herdada do design system aex.aura.build */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Oswald", "Inter", sans-serif;
+  --font-accent: "Playfair Display", Georgia, serif;
+
+  /* paleta — estrutura do design system aex, cores da marca ímpar.
+     Navy e azul saíram do logo do cliente (amostragem do PNG).      */
+  --color-tinta: #061E2A;        /* fundo escuro institucional */
+  --color-navy: #033F57;         /* navy da marca */
+  --color-navy-claro: #0A5A77;   /* borda e superfície sobre o navy */
+  --color-azul: #24A9E1;         /* acento: filete, hover, destaque */
+  --color-azul-claro: #5CC3EF;   /* hover do acento */
+  --color-papel: #EDF3F6;        /* fundo claro */
+  --color-papel-claro: #F6FAFC;  /* fundo claro alternado */
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-tinta);
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-navy);
+  background: var(--color-papel);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--color-azul); color: #fff; }
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-papel); }
+::-webkit-scrollbar-thumb { background: var(--color-azul); }
+
+/* ── reveal on-scroll ───────────────────────────────────────────────
+   Fail-safe deliberado: a pausa da animação só existe sob html.js-anim,
+   classe que o próprio JS aplica. Se o script não carregar, a página
+   aparece inteira e estática em vez de ficar em branco.
+   Nunca usar clip-path a 100% no quadro inicial: zera a área do elemento
+   e o IntersectionObserver nunca o considera visível.            */
+@keyframes surgir {
+  from { opacity: 0; transform: translateY(30px); filter: blur(8px); }
+  to   { opacity: 1; transform: translateY(0);    filter: blur(0); }
+}
+
+.surge { animation: surgir 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+html.js-anim .surge { animation-play-state: paused; }
+html.js-anim .surge.visivel { animation-play-state: running; }
+
+@media (prefers-reduced-motion: reduce) {
+  .surge { animation: none !important; opacity: 1; transform: none; filter: none; }
+  html { scroll-behavior: auto; }
+}
